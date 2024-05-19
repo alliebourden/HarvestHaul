@@ -86,7 +86,7 @@ const Farmers: React.FC = () => {
                                 />
 
                                 <Stack>
-                                <CardBody style={{ height: '200px' }}>
+                                <CardBody style={{ minHeight: '225px' }}>
     <Heading size='sm' style={{ fontSize: 'clamp(12px, 4vw, 14px)' }}>{farm_name}</Heading>
     <Text py='2' style={{ fontSize: 'clamp(12px, 4vw, 14px)' }}>
         Region: {region}
