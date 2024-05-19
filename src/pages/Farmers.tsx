@@ -59,15 +59,6 @@ const Farmers: React.FC = () => {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     };
 
-    // const sortByRegion = () => {
-    //     const sortedProfiles = [...profiles].sort((a, b) => {
-    //         const regionA = a.region ?? '';
-    //         const regionB = b.region ?? '';
-    //         return sortOrder === 'asc' ? regionA.localeCompare(regionB) : regionB.localeCompare(regionA);
-    //     });
-    //     setProfiles(sortedProfiles);
-    //     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-    // };
     
     return (
         <>
@@ -78,7 +69,6 @@ const Farmers: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                     <Button onClick={sortByName}>Sort by Name {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}</Button>
-                    {/* <Button onClick={sortByRegion}>Sort by Region</Button>  */}
                 </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', margin: '0 auto', maxWidth: '1200px', padding: '0 16px' }}>
@@ -87,7 +77,6 @@ const Farmers: React.FC = () => {
                 ) : (
                     profiles.map(({ id, farm_name, region }) => (
                         <Box key={id} mb={4} width={['100%', '45%', '30%']} flexBasis={['100%', '45%', '30%']} marginLeft="auto" marginRight="auto">
-
                             <Card direction={{ base: 'column', sm: 'row' }} variant='outline'>
                                 <Image
                                     objectFit='cover'
@@ -97,18 +86,19 @@ const Farmers: React.FC = () => {
                                 />
 
                                 <Stack>
-                                    <CardBody>
-                                        <Heading size='sm' style={{ fontSize: 'clamp(12px, 4vw, 20px)' }}>{farm_name}</Heading>
-                                        <Text py='2' style={{ fontSize: 'clamp(12px, 4vw, 20px)' }}>
-                                            Region: {region}
-                                        </Text>
-                                    </CardBody>
+                                <CardBody style={{ height: '200px' }}>
+    <Heading size='sm' style={{ fontSize: 'clamp(12px, 4vw, 14px)' }}>{farm_name}</Heading>
+    <Text py='2' style={{ fontSize: 'clamp(12px, 4vw, 14px)' }}>
+        Region: {region}
+    </Text>
+</CardBody>
 
-                                    <CardFooter>
-                                        <Button variant='solid' colorScheme='green'>
-                                            Learn More
-                                        </Button>
-                                    </CardFooter>
+
+<CardFooter paddingX={4} paddingY={2}>
+    <Button variant='solid' colorScheme='green' paddingX={4} paddingY={2}>
+        Learn More
+    </Button>
+</CardFooter>
                                 </Stack>
                             </Card>
                         </Box>
